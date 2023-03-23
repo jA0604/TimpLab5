@@ -1,1 +1,24 @@
+name: Test
+on: [push]
+jobs:
+    Test_gcc:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Check out repository code
+          uses: actions/checkout@v3
+        - run: sudo apt update -y
+        - run: sudo apt install -y cmake
+        - run: cd hello_world_application && cmake . -B _build && cd _build && make
+        - run: cd solver_application && cmake . -B _build && cd _build && make
+        - run: echo "This job's status is ${{ job.status }}."
 
+    Test_clang:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out repository code
+              uses: actions/checkout@v3
+            - run: sudo apt update -y
+            - run: sudo apt install -y clang cmake
+            - run: cd hello_world_application && cmake . -B _build -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang && cd _build && make
+            - run: cd solver_application && cmake . -B _build -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang && cd _build && make
+            - run: echo "This job's status is ${{ job.status }}."
