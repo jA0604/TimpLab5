@@ -41,6 +41,8 @@ TEST(Account, Lock)
 }
 EOF
 
+git submodule init && git submodule update
+
 cmake -H. -B_build -DBUILD_TESTS=ON
 
 
@@ -72,6 +74,14 @@ _build/check
 
 
 
+cmake --build _build --target test -- ARGS=--verbose
+
+
+
+
+
+![изображение](https://user-images.githubusercontent.com/112771063/227224905-06983efb-8413-4a39-900a-1dd1d44c056a.png)
+
 
 
 
@@ -80,3 +90,23 @@ git add .
 git commit -m 'added proj'
 
 git push origin main 
+
+
+
+
+
+![изображение](https://user-images.githubusercontent.com/112771063/227225142-4ed5e520-3cee-44c7-a096-7f1aa5a162cd.png)
+
+
+
+
+
+
+
+
+
+![изображение](https://user-images.githubusercontent.com/112771063/227225245-4d54ed3c-6ca1-4383-a49b-0677ce6a1cb0.png)
+
+
+
+
