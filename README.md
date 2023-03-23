@@ -48,15 +48,35 @@ cmake -H. -B_build -DBUILD_TESTS=ON
 
 
 
-cmake --build _build
+cmake --build _build 
 
 
 
 ![изображение](https://user-images.githubusercontent.com/112771063/227209504-f02ab0ee-1b7f-462b-aae9-8cb1cf1f0189.png)
 
 
+cmake --build _build --target test
+
+_build/check
 
 
 
 
 
+
+
+![изображение](https://user-images.githubusercontent.com/112771063/227214077-da91adca-cebf-422e-8dc2-e0feed38a151.png)
+
+
+
+
+
+
+
+
+
+git add .
+
+git commit -m 'added proj'
+
+git push origin main 
