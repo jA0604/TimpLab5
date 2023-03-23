@@ -8,8 +8,7 @@ jobs:
           uses: actions/checkout@v3
         - run: sudo apt update -y
         - run: sudo apt install -y cmake
-        - run: cd hello_world_application && cmake . -B _build && cd _build && make
-        - run: cd solver_application && cmake . -B _build && cd _build && make
+        - run: cmake --build _build
         - run: echo "This job's status is ${{ job.status }}."
 
     Test_clang:
@@ -19,6 +18,5 @@ jobs:
               uses: actions/checkout@v3
             - run: sudo apt update -y
             - run: sudo apt install -y clang cmake
-            - run: cd hello_world_application && cmake . -B _build -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang && cd _build && make
-            - run: cd solver_application && cmake . -B _build -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang && cd _build && make
+            - run: cmake --build _build
             - run: echo "This job's status is ${{ job.status }}."
