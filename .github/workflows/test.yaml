@@ -4,6 +4,8 @@ jobs:
     Test_gcc:
         runs-on: ubuntu-latest
         steps:
+        - name: Coveralls GitHub Action
+          uses: coverallsapp/github-action@v2.0.0
         - name: Check out repository code
           uses: actions/checkout@v3
         - run: git submodule init && git submodule update
@@ -15,6 +17,7 @@ jobs:
         - run: _build/check
         - run: cmake --build _build --target test -- ARGS=--verbose
         - run: echo "This job's status is ${{ job.status }}."
+        
 
     Test_clang:
         runs-on: ubuntu-latest
