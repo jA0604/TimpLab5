@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: Install CMake 
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
     - run: git submodule init && git submodule update
     - run: sudo apt update -y
     - run: sudo apt install -y cmake
@@ -33,7 +33,7 @@ jobs:
     - run: cmake --build _build --target test -- ARGS=--verbose
     
     - name: Coveralls GitHub Action
-      uses: coverallsapp/github-action@v2.0.0
+    - uses: coverallsapp/github-action@v2.0.0
     - run: echo "This job's status is ${{ job.status }}."
     
    
